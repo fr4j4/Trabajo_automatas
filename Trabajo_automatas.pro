@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    pilapalabra.cpp
+    pilapalabra.cpp \
+    listaestados.cpp
 
 HEADERS  += mainwindow.h \
-    pilapalabra.h
+    pilapalabra.h \
+    listaestados.h
 
 FORMS    += mainwindow.ui
