@@ -19,6 +19,7 @@ public:
     bool vacia();//devuelve true si la pila está vacía, false si no
     QString extraer();//Extrae el tope de la pila y retorna el caracter que almacenaba
     void setPalabra(QString);//Recibe una palabra y la ingresa en la pila (en caso de que contenga alguna palabra anterior, es vaciada primero)
+    void despliega();//imprime en consola la pila sin quitar los elementos
 };
 
 #endif // PILAPALABRA_H
