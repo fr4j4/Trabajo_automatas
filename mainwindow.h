@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QString>
 
 #include "listatransiciones.h"
 #include "pilapalabra.h"
@@ -27,6 +28,8 @@ private:
     Ui::MainWindow *ui;
     ListaTransiciones *trans;
     PilaPalabra* pal;
+    QString eInicial,eActual;
+
 
 };
 

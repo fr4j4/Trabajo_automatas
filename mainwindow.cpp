@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     trans=new ListaTransiciones();
     pal=new PilaPalabra();
-
-
+    eInicial="none";
+    ui->label_eInicial->setText("?");
     /*codigo para probar la pila de palabra
     qDebug()<<"pila de palabra vacia?: "<<pal->vacia();
     pal->setPalabra("Hola");
