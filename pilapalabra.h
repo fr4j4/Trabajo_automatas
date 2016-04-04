@@ -9,7 +9,8 @@ private:
             QString valor;//guarda el valor en QString del caracter representado
         public:
             Caracter *sig;//puntero al siguiente nodo
-            QString valor();//devuelve el valor representado
+            QString getvalor(void){return valor;}//devuelve el valor representado
+            void setValor(QString v){valor=v;}
             Caracter(){sig=0;}
     };
     Caracter *tope;//puntero al tope de la pila
