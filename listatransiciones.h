@@ -25,6 +25,7 @@ public:
     void quitar(QString,QString,QString);//Elimina una transicion con los mismos parametros que el metodo "agregar".
     QString getDestino(QString e,QString s);//devuelve un QString con el nombre del estado de destino en la transicion desde el estado "e" con el simbolo "s"
     //En caso de  no existir la transicion, devuelve "none"
+    bool existe(QString e1,QString s,QString e2);//devuelve true si la transicion ocn los datos recibidos existe en la lista, false si no
 
     void despliega(void);//imprime en consola las transiciones
 };

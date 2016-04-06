@@ -31,20 +31,22 @@ QString ListaTransiciones::getDestino(QString e, QString s){
 }
 
 void ListaTransiciones::quitar(QString origen, QString s, QString destino){
-    Transicion* aux=inicio->sig;
-    Transicion* anterior=inicio;
-    bool b=false;
-    while(aux){
-        if(aux->origen==origen&&aux->simbolo==s&&aux->detino==destino){
-            b=true;
-            break;
-        }
-        anterior=aux;
-        aux=aux->sig;
-    }
-    if(b){
-        anterior->sig=aux->sig;
+    Transicion*aux=inicio;
+    if(inicio->origen==origen&&inicio->detino==destino&&inicio->simbolo==s){
+        inicio=inicio->sig;
         delete(aux);
+    }else{
+        while(aux->sig){
+            if(aux->origen==origen&&aux->detino==destino&&aux->simbolo==s){
+                Transicion*aux2=aux->sig;
+                aux->sig=aux->sig->sig;
+                qDebug()<<"elimada transicion: "<<aux->origen<<" - "<<aux->simbolo<<" -> "<<aux->detino;
+                delete(aux2);
+                break;
+            }else{
+                aux=aux->sig;
+            }
+        }
     }
 }
 
@@ -54,4 +56,17 @@ void ListaTransiciones::despliega(void){
         qDebug()<<aux->origen<<"--"<<aux->simbolo<<"-->"<<aux->detino;
         aux=aux->sig;
     }
+}
+
+bool ListaTransiciones::existe(QString e1, QString s, QString e2){
+    bool existe=false;
+    Transicion* aux=inicio;
+    while(aux){
+        if(aux->origen==e1&&aux->simbolo==s&&aux->detino==e2){
+            existe=true;
+            break;
+        }
+        aux=aux->sig;
+    }
+    return existe;
 }

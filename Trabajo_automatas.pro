@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     pilapalabra.cpp \
-    listatransiciones.cpp
+    listatransiciones.cpp \
+    listaestadosfinales.cpp
 
 HEADERS  += mainwindow.h \
     pilapalabra.h \
-    listatransiciones.h
+    listatransiciones.h \
+    listaestadosfinales.h
 
 FORMS    += mainwindow.ui
