@@ -15,20 +15,26 @@ void ListaEstadosFinales::agregar(QString n){
 }
 
 void ListaEstadosFinales::quitar(QString n){
-    Estado* aux=inicio->sig;
-    Estado* anterior=inicio;
-    bool b=false;
-    while(aux){
-        if(aux->nombre==n){
-            b=true;
-            break;
-        }
-        anterior=aux;
-        aux=aux->sig;
-    }
-    if(b){
-        anterior->sig=aux->sig;
+    if(inicio->nombre==n){
+        Estado*aux=inicio;
+        inicio=inicio->sig;
         delete(aux);
+    }else{
+        Estado* aux=inicio->sig;
+        Estado* anterior=inicio;
+        bool b=false;
+        while(aux){
+            if(aux->nombre==n){
+                b=true;
+                break;
+            }
+            anterior=aux;
+            aux=aux->sig;
+        }
+        if(b){
+            anterior->sig=aux->sig;
+            delete(aux);
+        }
     }
 }
 

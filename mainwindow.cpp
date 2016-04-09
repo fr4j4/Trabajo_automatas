@@ -44,9 +44,11 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::on_botonSetEstadoInicial_clicked(){
-    eInicial=ui->inEstadoInicial->text().trimmed();
-    ui->labelEstadoInicial->setText(eInicial);
-    ui->inEstadoInicial->setText("");
+    if(ui->inEstadoInicial->text().trimmed().length()>0&&ui->inEstadoInicial->text().trimmed().toLower()!="none"){
+        eInicial=ui->inEstadoInicial->text().trimmed();
+        ui->labelEstadoInicial->setText(eInicial);
+        ui->inEstadoInicial->setText("");
+    }
 }
 
 void MainWindow::on_botonAgregarTransiciones_clicked(){
@@ -61,6 +63,7 @@ void MainWindow::on_botonAgregarTransiciones_clicked(){
 void MainWindow::on_botonQuitarEstadoFinal_clicked(){
     if(ui->listaEstadosFinales->selectedItems().length()>0){
         finales->quitar(ui->listaEstadosFinales->selectedItems().at(0)->text());
+        qDebug()<<"eliminado: "<<ui->listaEstadosFinales->selectedItems().at(0)->text();
         qDeleteAll(ui->listaEstadosFinales->selectedItems());
         ui->listaEstadosFinales->sortItems(Qt::AscendingOrder);
     }
@@ -81,7 +84,7 @@ void MainWindow::on_botonProbarPalabra_clicked(){
         while(!pal->vacia()&&eActual!="none"){
             c=pal->extraer();
             qDebug()<<"Estoy en "<<eActual<<", leo el simbolo "<<c<<"";
-            msg("Estoy en "+eActual+", leo el simbolo "+c,"yellow");
+            msg("Estoy en "+eActual+", leo el simbolo \""+c+"\"","yellow");
             ultimoEstado=eActual;
             eActual=trans->getDestino(eActual,c);
             if(eActual!="none"){
@@ -98,7 +101,7 @@ void MainWindow::on_botonProbarPalabra_clicked(){
         }else{
             if(eActual=="none"){
                 qDebug()<<"La transicion del estado "<<ultimoEstado<<" con el simbolo "<<c<<"no está definida.";
-                msg("La transicion del estado "+ultimoEstado+" con el simbolo "+c+" no está definida.","blue");
+                msg("La transicion del estado "+ultimoEstado+" con el simbolo \""+c+"\" no está definida.","blue");
             }
             if(!pal->vacia()){
                 qDebug()<<"Pila de la palabra no está vacía.";
@@ -129,6 +132,8 @@ void MainWindow::on_botonProbarPalabra_clicked(){
 void MainWindow::on_bton_eliminar_todas_clicked(){
     qDebug()<<"transiciones:";
     trans->despliega();
+    qDebug()<<"estados finales:";
+    finales->despliega();
 }
 void MainWindow::on_boton_agregar_clicked(){
     if(ui->in_simbolo->text().length()==1&&ui->in_origen->text().length()>0&&ui->in_destino->text().length()>0&&!trans->existe(ui->in_origen->text(),ui->in_simbolo->text(),ui->in_destino->text())){

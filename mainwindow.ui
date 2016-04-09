@@ -162,7 +162,7 @@
      <property name="geometry">
       <rect>
        <x>290</x>
-       <y>70</y>
+       <y>90</y>
        <width>101</width>
        <height>41</height>
       </rect>
@@ -175,8 +175,8 @@ seleccionada</string>
     <widget class="QPushButton" name="bton_eliminar_todas">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>120</y>
+       <x>430</x>
+       <y>20</y>
        <width>101</width>
        <height>23</height>
       </rect>
@@ -218,8 +218,8 @@ seleccionada</string>
     <widget class="QLineEdit" name="inEstadoFinal">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>50</y>
+       <x>240</x>
+       <y>140</y>
        <width>31</width>
        <height>31</height>
       </rect>
@@ -254,15 +254,17 @@ seleccionada</string>
     <widget class="QPushButton" name="botonAgregarTransiciones">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>50</y>
+       <x>280</x>
+       <y>143</y>
        <width>61</width>
-       <height>31</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -272,7 +274,7 @@ seleccionada</string>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>200</x>
        <y>35</y>
        <width>101</width>
        <height>20</height>
@@ -285,9 +287,9 @@ seleccionada</string>
     <widget class="QPushButton" name="botonQuitarEstadoFinal">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>140</y>
-       <width>81</width>
+       <x>280</x>
+       <y>70</y>
+       <width>91</width>
        <height>41</height>
       </rect>
      </property>
@@ -327,7 +329,7 @@ border-width:2px;</string>
     <widget class="QListWidget" name="listaEstadosFinales">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>210</x>
        <y>60</y>
        <width>61</width>
        <height>71</height>
@@ -418,7 +420,7 @@ border-width:2px;</string>
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Salida Avanzada</string>
+       <string>Detalles de salida</string>
       </attribute>
       <widget class="QTextEdit" name="salida">
        <property name="enabled">
