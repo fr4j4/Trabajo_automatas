@@ -24,3 +24,4 @@ HEADERS  += mainwindow.h \
     listaestadosfinales.h
 
 FORMS    += mainwindow.ui
+RC_FILE = myapp.rc

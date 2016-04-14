@@ -1,17 +1,23 @@
 #include "listaestadosfinales.h"
-
 #include <QDebug>
-void ListaEstadosFinales::agregar(QString n){
-    Estado* e=new Estado();
-    e->nombre=n;
-    Estado* aux=inicio;
-    if(aux==0){inicio=e;}
-    else{
-        while(aux->sig){
-            aux=aux->sig;
+
+bool ListaEstadosFinales::agregar(QString n){
+    bool agregado=false;
+    if(!existe(n)){
+        qDebug()<<n<<" agregado";
+        agregado=true;
+        Estado* e=new Estado();
+        e->nombre=n;
+        Estado* aux=inicio;
+        if(aux==0){inicio=e;}
+        else{
+            while(aux->sig){
+                aux=aux->sig;
+            }
+            aux->sig=e;
         }
-        aux->sig=e;
     }
+    return agregado;
 }
 
 void ListaEstadosFinales::quitar(QString n){
@@ -45,8 +51,9 @@ bool ListaEstadosFinales::existe(QString n){
         if(aux->nombre==n){
             existe=true;
             break;
+        }else{
+         aux=aux->sig;
         }
-        aux=aux->sig;
     }
     return existe;
 }

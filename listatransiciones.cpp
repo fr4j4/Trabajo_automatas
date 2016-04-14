@@ -1,7 +1,8 @@
 #include "listatransiciones.h"
 #include <QDebug>
 
-void ListaTransiciones::agregar(QString e1, QString s, QString e2){
+bool ListaTransiciones::agregar(QString e1, QString s, QString e2){
+   bool b=false;
     if(getDestino(e1,s)=="none"){//agrega sólo si no existe transicion desde e1 con el símbolo s
         Transicion *t=new Transicion();
         t->origen=e1;
@@ -15,7 +16,9 @@ void ListaTransiciones::agregar(QString e1, QString s, QString e2){
             }
             aux->sig=t;
         }
+        b=true;
     }
+    return b;
 }
 QString ListaTransiciones::getDestino(QString e, QString s){
     QString out="none";
